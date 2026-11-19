@@ -1,8 +1,20 @@
 # Reviewer complaint catalog
 
-What real reviewers complain about in robot learning evaluation, benchmark, robustness and measurement papers, as a list of error groups and the kinds of error inside each group. Use it in step 5 (checklist) and step 7 (ranking) of SKILL.md. Built from public reviews; see CALIBRATION.md for how it was built and how far it has saturated.
+What real reviewers complain about, and what they praise, in robot learning papers, as one shared set of error groups and kinds. Use it in step 5 (checklist) and step 7 (ranking) of SKILL.md. Per-topic, per-venue and topic x venue counts, with the share treated as a reason to reject and the share resolved by rebuttal, are in catalog-views.md next to this file: read the view for the paper's topic and venue first, then this general catalog.
 
-Sources so far: ICLR 2027 reviews of 50 papers on VLA and robot-learning evaluation (20 calibration papers, 205 issues, 2026-11-17; 30 low-scored or withdrawn papers, 102 issues raised by at least two reviewers of the same paper, 2026-11-19). One venue and one year: for other venues treat the shares as a weak prior.
+## Saturation status (2026-11-20)
+
+| Topic | Complaints | Praise | Papers | Venues |
+|---|---|---|---|---|
+| Evaluation of VLA and robot-learning policies, benchmarks used for evaluation, robustness, measurement | saturated: 10-paper rule met on ICLR 2027 (30 papers) and again on 12 papers across ICLR 2025-2027, NeurIPS 2025-2026, CoRL 2023-2024 | saturated: no new praise group in 3 consecutive papers (13 papers) | 20 calibration + 30 + 13 | as listed |
+| Manipulation methods (imitation learning, diffusion policies, VLA training) | thin: 3-paper rule met after only 3 CoRL papers, nothing new; treat as unsaturated | thin: same 3 papers | 3 | CoRL 2023-2024 |
+| Locomotion, whole-body control, humanoids, RL, sim-to-real | not saturated: 2 papers coded | not saturated | 2 | ICLR 2027, TMLR |
+| World and video models for robots | not run | not run | 0 | - |
+| Datasets and benchmarks for robot learning | not run | not run | 0 | - |
+
+For unsaturated topics use the evaluation catalog as a weak prior and say so in the review header.
+
+Sources so far: ICLR 2027 reviews of 50 papers on VLA and robot-learning evaluation (20 calibration papers, 205 issues, 2026-11-17; 30 low-scored or withdrawn papers, 102 issues raised by at least two reviewers of the same paper, 2026-11-19); plus 18 papers across ICLR 2025-2027, NeurIPS 2025-2026, CoRL 2023-2024 and TMLR with severity, rebuttal and praise tags (2026-11-19 and 2026-11-20). One venue and one year: for other venues treat the shares as a weak prior.
 
 Counts in brackets are the number of consensus issues (raised by 2 or more reviewers of the same paper) in the 30-paper saturation run. A kind with 0 still came up in the 20 calibration papers.
 
@@ -16,12 +28,14 @@ Counts in brackets are the number of consensus issues (raised by 2 or more revie
 - Mislabeled variable [0]: a "seed" that moves fixtures, a perturbation outside the benchmark's initialization range.
 - The metric does not measure what the paper says [11, the most frequent kind]: labels or validators never checked against people; a probe that decodes information the policy may not use; a proxy (action divergence, predicted cost) never shown to track task success; an intervention never checked to preserve or change the intended fact; safety defined only by hand-written predicates.
 - Evaluation overlaps training or tuning [4] (new): test demos or perturbation families shared with training; hyperparameters, layers or features selected on the evaluation tasks; gains measured on starts already examined.
+- Redundant or overlapping metrics or axes reported as distinct dimensions (added 2026-11-19, multi-venue run): correlated signals or axes presented as separate capabilities.
 - Metric thresholds, weights or exclusion rules chosen by hand without sensitivity analysis [3] (new): a 90th-percentile threshold, an asymmetric F1, rule sets that keep very different numbers of tasks.
 
 ## (d) Claims beyond the evidence - 23%
 
 - One model, one benchmark, one simulator or a few tasks generalized [13, the second most frequent kind and present in 13 of 30 papers]: also a benchmark whose main experiments cover only part of its own tasks.
 - Simulation only while the claims concern deployment, safety or real sensors [4]: including simulated tactile and deformable physics never checked against reality.
+- A claimed consequence or downstream benefit that is never tested (added 2026-11-19, multi-venue run): the paper says the finding makes policies brittle, improves selection or helps deployment, but no experiment checks it.
 - Claim true by definition, or evidence of the wrong kind [6]: scripted components standing in for the learned system; injected faults standing in for natural failures; a mechanistic reading that does not exclude other explanations; a metric read more strongly than its definition allows.
 
 ## (b) Baselines, controls and ablations - 12%
@@ -61,10 +75,30 @@ Counts in brackets are the number of consensus issues (raised by 2 or more revie
 
 ## (f) Venue compliance - 0%
 
-- Desk-reject items only (anonymity, page limit, links). No reviewer raised compliance in 50 papers.
+- Desk-reject items only (anonymity, page limit, links). No reviewer raised compliance in the 50 ICLR 2027 papers.
+- A section the venue requires (for example a limitations section at CoRL or RSS) missing or inadequate (added 2026-11-19, from one CoRL 2023 paper, partly from score fields; treat as weak).
+
+## Praise catalog
+
+Only specific praise raised by 2 or more reviewers of the same paper. Counts are rows in the evaluation topic (13 papers) plus manipulation (3) and locomotion (2); see catalog-views.md for the split.
+
+- Careful measurement or evaluation design: controls, accounting or protocol that isolates the effect.
+- Informative findings or insight into mechanism: results reveal something non-obvious.
+- Broad or consistent empirical evidence: many models, tasks or settings with the same trend.
+- Real-robot evidence (the most frequent praise at CoRL).
+- Thorough ablations or design studies of the key choices.
+- Useful released assets or infrastructure: data, code, pipeline, benchmark.
+- Realistic threat model or problem setting.
+- Careful statistics or formal guarantees: seeds, intervals, calibrated or conformal bounds.
+- Low cost or simple deployment: lightweight, no retraining of the policy.
+- A well-motivated component that solves a concrete technical difficulty of prior pipelines.
+- Downstream usefulness demonstrated: the method or measurement helps an actual use (failure detection, data selection, control).
+
+In the coded papers, accepted and rejected papers drew about the same number of praise rows (about 2 per paper), and no meta-review was coded as saying that a strength outweighed a serious complaint. Praise predicts the strengths section of the reviews, not the decision.
 
 ## How to use it
 
 1. Before writing weaknesses, walk every kind above and answer it with a location in the paper.
-2. When ranking, the kinds that reviewers agree on most often are: the metric does not measure what it claims; one model or benchmark generalized; the simplest baseline or control missing; incremental over named work; "so what"; sparse data carrying a strong claim.
-3. A new kind of complaint that fits none of the above is worth noting in the review output, so the catalog can grow.
+2. Start from catalog-views.md: the view for the paper's topic and venue, then the topic view, then this list. Kinds with a high reject-reason share and a low rebuttal-resolved share (one model or benchmark generalized; incremental over named work; effect already known) are the ones that decide outcomes.
+3. When ranking, the kinds that reviewers agree on most often are: the metric does not measure what it claims; one model or benchmark generalized; the simplest baseline or control missing; incremental over named work; "so what"; sparse data carrying a strong claim.
+4. A new kind of complaint that fits none of the above is worth noting in the review output, so the catalog can grow.
