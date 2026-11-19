@@ -16,6 +16,7 @@ The skill is the folder `robot-paper-review/`; `dist/` holds the same folder pac
 
 - `robot-paper-review/SKILL.md`: the procedure. It holds no dated numbers, so it does not go stale when models or venues change.
 - `robot-paper-review/CALIBRATION.md`: an append-only log of how well blind reviews predicted real public reviews, with the reviewer model and date of each round, plus the latest digest of recurring complaints. The skill reads it at the start of every run and warns when the current model or the date does not match.
+- `robot-paper-review/references/complaint-catalog.md`: the catalog of what real reviewers complain about, by error group and kind of error, with counts from public reviews.
 
 ## Install
 
