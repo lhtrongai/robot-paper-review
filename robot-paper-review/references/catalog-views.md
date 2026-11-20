@@ -6,45 +6,46 @@ Rows: complaints raised by 2 or more reviewers of the same paper, specific prais
 
 | Topic | papers coded | complaint rows | praise rows | venues |
 |---|---|---|---|---|
-| VLA and robot-learning evaluation | 13 | 43 | 30 | CoRL 2023, CoRL 2024, ICLR 2025, ICLR 2026, ICLR 2027, NeurIPS 2025, NeurIPS 2026 |
+| VLA and robot-learning evaluation | 20 | 43 | 46 | CoRL 2023, CoRL 2024, ICLR 2025, ICLR 2026, ICLR 2027, NeurIPS 2025, NeurIPS 2026 |
 | locomotion and humanoids (partial, 2 papers) | 2 | 8 | 3 | ICLR 2027, TMLR |
-| manipulation methods (3 papers, CoRL only) | 3 | 5 | 6 | CoRL 2023, CoRL 2024 |
+| manipulation methods | 13 | 57 | 34 | CoRL 2023, ICLR 2025, ICLR 2026, ICLR 2027, NeurIPS 2024, NeurIPS 2025, TMLR |
 | ICLR 2027 saturation run, evaluation (complaints only) | 30 | 102 | - | ICLR 2027 |
 
 ## Complaints by severity and rebuttal (tagged rows only)
 
 | Severity | n | share |
 |---|---|---|
-| reject reason | 44 | 79% |
-| suggestion | 12 | 21% |
+| reject reason | 78 | 72% |
+| suggestion | 30 | 28% |
 
 | Rebuttal outcome | all | reject-reason rows | suggestion rows |
 |---|---|---|---|
-| partly | 23 | 19 | 4 |
-| not resolved | 18 | 13 | 5 |
-| resolved | 11 | 8 | 3 |
-| no rebuttal | 4 | 4 | 0 |
+| partly | 33 | 27 | 6 |
+| resolved | 28 | 19 | 9 |
+| not resolved | 24 | 17 | 7 |
+| no rebuttal | 23 | 15 | 8 |
 
 ## Praise against complaints by decision (score prediction input)
 
 | Decision | papers | reject-reason complaints per paper | praise rows per paper | praise cited as offsetting |
 |---|---|---|---|---|
-| accept | 8 | 2.0 | 2.0 | 0 |
-| pending | 6 | 3.3 | 2.3 | 0 |
-| rejected | 3 | 2.7 | 2.3 | 0 |
+| accept | 12 | 2.4 | 2.2 | 4 |
+| pending | 9 | 3.6 | 2.6 | 0 |
+| rejected | 5 | 2.8 | 2.2 | 0 |
+| withdrawn | 1 | 3.0 | 4.0 | 0 |
 
 ## Complaints by group and topic
 
-| Group | VLA and robot-learning evaluation | locomotion and humanoids (partial, 2 papers) | manipulation methods (3 papers, CoRL only) |
+| Group | VLA and robot-learning evaluation | locomotion and humanoids (partial, 2 papers) | manipulation methods |
 |---|---|---|---|
-| a Scope, insight and practical value | 21 (14%) | 1 (12%) | 0 (0%) |
-| b Baselines, controls and ablations | 16 (11%) | 1 (12%) | 1 (20%) |
-| c Statistics | 11 (8%) | 0 (0%) | 0 (0%) |
-| d Claims beyond the evidence | 32 (22%) | 1 (12%) | 1 (20%) |
-| e Novelty and prior art | 18 (12%) | 0 (0%) | 1 (20%) |
-| f Venue compliance | 1 (1%) | 0 (0%) | 0 (0%) |
-| g Measurement design and validity | 35 (24%) | 3 (38%) | 0 (0%) |
-| o Clarity, reproducibility and technical errors | 11 (8%) | 2 (25%) | 2 (40%) |
+| a Scope, insight and practical value | 21 (14%) | 1 (12%) | 7 (12%) |
+| b Baselines, controls and ablations | 16 (11%) | 1 (12%) | 12 (21%) |
+| c Statistics | 11 (8%) | 0 (0%) | 3 (5%) |
+| d Claims beyond the evidence | 32 (22%) | 1 (12%) | 7 (12%) |
+| e Novelty and prior art | 18 (12%) | 0 (0%) | 6 (11%) |
+| f Venue compliance | 1 (1%) | 0 (0%) | 1 (2%) |
+| g Measurement design and validity | 35 (24%) | 3 (38%) | 9 (16%) |
+| o Clarity, reproducibility and technical errors | 11 (8%) | 2 (25%) | 12 (21%) |
 
 ## View by topic
 
@@ -85,16 +86,17 @@ Rows: complaints raised by 2 or more reviewers of the same paper, specific prais
 
 | Praise group | n | papers | cited as offsetting a serious complaint |
 |---|---|---|---|
-| p1 Careful measurement or evaluation design (well-chosen controls, accounting or protocol that isolates the effect) | 7 | 7 | 0% |
-| p3 Broad or consistent empirical evidence (many models, tasks or settings with the same trend) | 6 | 6 | 17% |
-| p2 Informative findings or insight into mechanism (results reveal something non-obvious about the policy or the evaluation) | 6 | 5 | 0% |
-| p4 Real-robot evidence | 2 | 2 | 0% |
-| p5 Thorough ablations or design studies of the key choices | 2 | 2 | 0% |
+| p1 Careful measurement or evaluation design (well-chosen controls, accounting or protocol that isolates the effect) | 12 | 12 | 0% |
+| p3 Broad or consistent empirical evidence (many models, tasks or settings with the same trend) | 8 | 8 | 12% |
+| p2 Informative findings or insight into mechanism (results reveal something non-obvious about the policy or the evaluation) | 8 | 7 | 0% |
+| p4 Real-robot evidence | 3 | 3 | 0% |
+| p5 Thorough ablations or design studies of the key choices | 3 | 3 | 0% |
+| p6 Useful released assets or infrastructure (data, code, pipeline, benchmark) | 3 | 3 | 0% |
 | p7 Realistic threat model or problem setting (practical relevance of the chosen setup) | 2 | 2 | 50% |
+| p11 Downstream usefulness demonstrated (the method or measurement is shown to help an actual use, such as failure detection, data selection or control) | 2 | 2 | 0% |
+| p8 Careful statistics or formal guarantees (seeds, intervals, calibrated or conformal bounds) | 2 | 2 | 0% |
 | p9 Low cost or simple deployment of the method (lightweight, no retraining of the policy) | 2 | 2 | 0% |
-| p6 Useful released assets or infrastructure (data, code, pipeline, benchmark) | 1 | 1 | 0% |
-| p11 Downstream usefulness demonstrated (the method or measurement is shown to help an actual use, such as failure detection, data selection or control) | 1 | 1 | 0% |
-| p8 Careful statistics or formal guarantees (seeds, intervals, calibrated or conformal bounds) | 1 | 1 | 0% |
+| p10 Well-motivated method component that solves a concrete technical difficulty (design addresses a real failure of prior pipelines) | 1 | 1 | 0% |
 
 ### Complaints: locomotion and humanoids (partial, 2 papers)
 
@@ -117,90 +119,126 @@ Rows: complaints raised by 2 or more reviewers of the same paper, specific prais
 | p10 Well-motivated method component that solves a concrete technical difficulty (design addresses a real failure of prior pipelines) | 1 | 1 | 0% |
 | p6 Useful released assets or infrastructure (data, code, pipeline, benchmark) | 1 | 1 | 0% |
 
-### Complaints: manipulation methods (3 papers, CoRL only)
+### Complaints: manipulation methods
 
 | Kind | n | papers | reject reason | rebuttal resolved | partly |
 |---|---|---|---|---|---|
-| o1 hard to follow, undefined terms, disconnected experiments | 1 | 1 | 100% | 0% | 100% |
-| d1 one model, benchmark, simulator or few tasks generalized | 1 | 1 | 100% | 0% | 100% |
-| e2 incremental over named work or assembly of existing parts | 1 | 1 | 0% | 0% | 100% |
-| b2 closest current method or benchmark missing | 1 | 1 | 100% | 0% | 100% |
-| o3 missing parameters, protocols, code, checkpoints | 1 | 1 | 0% | 0% | 100% |
+| o3 missing parameters, protocols, code, checkpoints | 6 | 6 | 83% | 50% | 25% |
+| b2 closest current method or benchmark missing | 6 | 6 | 67% | 75% | 0% |
+| o1 hard to follow, undefined terms, disconnected experiments | 5 | 5 | 20% | 100% | 0% |
+| e2 incremental over named work or assembly of existing parts | 4 | 4 | 75% | 0% | 33% |
+| g7 metric, label, probe or proxy does not measure what is claimed | 4 | 4 | 75% | 0% | 100% |
+| a3 unrealistic premise or framing that does not match the content | 3 | 3 | 33% | 50% | 50% |
+| d4 claimed consequence or downstream benefit asserted but never tested | 3 | 3 | 67% | 50% | 0% |
+| c1 single run, no seeds, no intervals, too few trials | 3 | 3 | 100% | 100% | 0% |
+| d1 one model, benchmark, simulator or few tasks generalized | 2 | 2 | 100% | 50% | 50% |
+| b1 simplest baseline or control missing | 2 | 2 | 0% | 100% | 0% |
+| b4 component not isolated by an ablation | 2 | 2 | 100% | 50% | 50% |
+| a1 effect shown without mechanism | 2 | 2 | 50% | 50% | 50% |
+| g9 hand-chosen thresholds, weights or rules without sensitivity analysis | 2 | 2 | 100% | - | - |
+| g4 unequal budgets across conditions | 2 | 2 | 100% | 0% | 100% |
+| b3 unfair comparison | 2 | 2 | 100% | 0% | 100% |
+| a4 net benefit not shown: gain costs another capability | 1 | 1 | 0% | 0% | 100% |
+| o5 unfinished paper: empty cells, deferred experiments | 1 | 1 | 100% | 0% | 100% |
+| e1 effect already known or expected | 1 | 1 | 0% | 0% | 0% |
+| d2 simulation only while claims concern deployment or real hardware | 1 | 1 | 100% | - | - |
+| a6 failure modes or operating limits not analysed (no breakdown of when and why the method fails) | 1 | 1 | 100% | 0% | 100% |
+| e3 closely related prior work not cited or not positioned against | 1 | 1 | 0% | 100% | 0% |
+| d3 claim true by definition or evidence of the wrong kind | 1 | 1 | 100% | - | - |
+| g8 evaluation overlaps training or tuning | 1 | 1 | 0% | - | - |
+| f2 venue-required section (for example the limitations section) missing or inadequate | 1 | 1 | 0% | 0% | 100% |
 
-### Praise: manipulation methods (3 papers, CoRL only)
+### Praise: manipulation methods
 
 | Praise group | n | papers | cited as offsetting a serious complaint |
 |---|---|---|---|
-| p4 Real-robot evidence | 3 | 3 | 0% |
-| p5 Thorough ablations or design studies of the key choices | 1 | 1 | 0% |
-| p7 Realistic threat model or problem setting (practical relevance of the chosen setup) | 1 | 1 | 0% |
-| p9 Low cost or simple deployment of the method (lightweight, no retraining of the policy) | 1 | 1 | 0% |
+| p3 Broad or consistent empirical evidence (many models, tasks or settings with the same trend) | 10 | 10 | 10% |
+| p10 Well-motivated method component that solves a concrete technical difficulty (design addresses a real failure of prior pipelines) | 6 | 6 | 17% |
+| p5 Thorough ablations or design studies of the key choices | 6 | 6 | 0% |
+| p4 Real-robot evidence | 4 | 4 | 0% |
+| p9 Low cost or simple deployment of the method (lightweight, no retraining of the policy) | 2 | 2 | 0% |
+| p2 Informative findings or insight into mechanism (results reveal something non-obvious about the policy or the evaluation) | 2 | 2 | 0% |
+| p12 Clear conceptual framing that organizes the design space (a formulation or decomposition of the problem that clarifies what is being tested and motivates the experiments) | 1 | 1 | 0% |
+| p8 Careful statistics or formal guarantees (seeds, intervals, calibrated or conformal bounds) | 1 | 1 | 0% |
+| p6 Useful released assets or infrastructure (data, code, pipeline, benchmark) | 1 | 1 | 100% |
+| p11 Downstream usefulness demonstrated (the method or measurement is shown to help an actual use, such as failure detection, data selection or control) | 1 | 1 | 100% |
 
 ## View by venue
 
-### CoRL 2023 (2 papers): 8 complaint rows, reject reason 50%, rebuttal resolved 25%
+### CoRL 2023 (4 papers): 15 complaint rows, reject reason 53%, rebuttal resolved 40%
 
-Most frequent complaint kinds: e2 incremental over named work or assembly of existing parts (1); g7 metric, label, probe or proxy does not measure what is claimed (1); o3 missing parameters, protocols, code, checkpoints (1); b2 closest current method or benchmark missing (1); a3 unrealistic premise or framing that does not match the content (1); g9 hand-chosen thresholds, weights or rules without sensitivity analysis (1)
+Most frequent complaint kinds: e2 incremental over named work or assembly of existing parts (3); b2 closest current method or benchmark missing (2); g7 metric, label, probe or proxy does not measure what is claimed (1); o3 missing parameters, protocols, code, checkpoints (1); a3 unrealistic premise or framing that does not match the content (1); g9 hand-chosen thresholds, weights or rules without sensitivity analysis (1)
 
-Praise: p4 Real-robot evidence (2); p3 Broad or consistent empirical evidence (many models, tasks or settings with the same trend) (1); p7 Realistic threat model or problem setting (practical relevance of the chosen setup) (1); p9 Low cost or simple deployment of the method (lightweight, no retraining of the policy) (1)
+Praise: p3 Broad or consistent empirical evidence (many models, tasks or settings with the same trend) (2); p4 Real-robot evidence (2); p5 Thorough ablations or design studies of the key choices (2); p1 Careful measurement or evaluation design (well-chosen controls, accounting or protocol that isolates the effect) (1)
 
-### CoRL 2024 (3 papers): 6 complaint rows, reject reason 67%, rebuttal resolved 0%
+### CoRL 2024 (1 papers): 1 complaint rows, reject reason 100%, rebuttal resolved 0%
 
-Most frequent complaint kinds: d1 one model, benchmark, simulator or few tasks generalized (2); o1 hard to follow, undefined terms, disconnected experiments (1); e2 incremental over named work or assembly of existing parts (1); b2 closest current method or benchmark missing (1); o3 missing parameters, protocols, code, checkpoints (1)
+Most frequent complaint kinds: d1 one model, benchmark, simulator or few tasks generalized (1)
 
-Praise: p4 Real-robot evidence (2); p2 Informative findings or insight into mechanism (results reveal something non-obvious about the policy or the evaluation) (1); p1 Careful measurement or evaluation design (well-chosen controls, accounting or protocol that isolates the effect) (1); p5 Thorough ablations or design studies of the key choices (1)
+Praise: p2 Informative findings or insight into mechanism (results reveal something non-obvious about the policy or the evaluation) (1); p1 Careful measurement or evaluation design (well-chosen controls, accounting or protocol that isolates the effect) (1)
 
-### ICLR 2025 (1 papers): 4 complaint rows, reject reason 75%, rebuttal resolved 25%
+### ICLR 2025 (3 papers): 10 complaint rows, reject reason 70%, rebuttal resolved 20%
 
-Most frequent complaint kinds: d2 simulation only while claims concern deployment or real hardware (1); a2 so what: does not change a decision or beat current practice (1); e1 effect already known or expected (1); b2 closest current method or benchmark missing (1)
+Most frequent complaint kinds: b2 closest current method or benchmark missing (2); d2 simulation only while claims concern deployment or real hardware (1); a2 so what: does not change a decision or beat current practice (1); e1 effect already known or expected (1); e2 incremental over named work or assembly of existing parts (1); d4 claimed consequence or downstream benefit asserted but never tested (1)
 
-Praise: p1 Careful measurement or evaluation design (well-chosen controls, accounting or protocol that isolates the effect) (1)
+Praise: p1 Careful measurement or evaluation design (well-chosen controls, accounting or protocol that isolates the effect) (1); p6 Useful released assets or infrastructure (data, code, pipeline, benchmark) (1); p11 Downstream usefulness demonstrated (the method or measurement is shown to help an actual use, such as failure detection, data selection or control) (1); p3 Broad or consistent empirical evidence (many models, tasks or settings with the same trend) (1); p4 Real-robot evidence (1)
 
-### ICLR 2026 (2 papers): 7 complaint rows, reject reason 100%, rebuttal resolved 0%
+### ICLR 2026 (6 papers): 15 complaint rows, reject reason 93%, rebuttal resolved 0%
 
-Most frequent complaint kinds: g1 two factors changed at once (1); g10 redundant or overlapping metrics or axes reported as distinct dimensions (1); d2 simulation only while claims concern deployment or real hardware (1); o1 hard to follow, undefined terms, disconnected experiments (1); e2 incremental over named work or assembly of existing parts (1); e1 effect already known or expected (1)
+Most frequent complaint kinds: d2 simulation only while claims concern deployment or real hardware (2); o1 hard to follow, undefined terms, disconnected experiments (2); g7 metric, label, probe or proxy does not measure what is claimed (2); g1 two factors changed at once (1); g10 redundant or overlapping metrics or axes reported as distinct dimensions (1); e2 incremental over named work or assembly of existing parts (1)
 
-Praise: p1 Careful measurement or evaluation design (well-chosen controls, accounting or protocol that isolates the effect) (2); p6 Useful released assets or infrastructure (data, code, pipeline, benchmark) (1); p2 Informative findings or insight into mechanism (results reveal something non-obvious about the policy or the evaluation) (1); p5 Thorough ablations or design studies of the key choices (1); p7 Realistic threat model or problem setting (practical relevance of the chosen setup) (1)
+Praise: p1 Careful measurement or evaluation design (well-chosen controls, accounting or protocol that isolates the effect) (4); p5 Thorough ablations or design studies of the key choices (3); p10 Well-motivated method component that solves a concrete technical difficulty (design addresses a real failure of prior pipelines) (3); p3 Broad or consistent empirical evidence (many models, tasks or settings with the same trend) (3); p2 Informative findings or insight into mechanism (results reveal something non-obvious about the policy or the evaluation) (2); p6 Useful released assets or infrastructure (data, code, pipeline, benchmark) (1); p7 Realistic threat model or problem setting (practical relevance of the chosen setup) (1); p11 Downstream usefulness demonstrated (the method or measurement is shown to help an actual use, such as failure detection, data selection or control) (1); p4 Real-robot evidence (1)
 
-### ICLR 2027 (36 papers): 124 complaint rows, reject reason 91%, rebuttal resolved 28%
+### ICLR 2027 (39 papers): 131 complaint rows, reject reason 90%, rebuttal resolved 35%
 
-Most frequent complaint kinds: d1 one model, benchmark, simulator or few tasks generalized (15); g7 metric, label, probe or proxy does not measure what is claimed (14); e2 incremental over named work or assembly of existing parts (10); a2 so what: does not change a decision or beat current practice (8); b1 simplest baseline or control missing (8); d3 claim true by definition or evidence of the wrong kind (7)
+Most frequent complaint kinds: d1 one model, benchmark, simulator or few tasks generalized (15); g7 metric, label, probe or proxy does not measure what is claimed (15); e2 incremental over named work or assembly of existing parts (10); a2 so what: does not change a decision or beat current practice (8); b1 simplest baseline or control missing (8); d3 claim true by definition or evidence of the wrong kind (7)
 
-Praise: p1 Careful measurement or evaluation design (well-chosen controls, accounting or protocol that isolates the effect) (3); p3 Broad or consistent empirical evidence (many models, tasks or settings with the same trend) (3); p4 Real-robot evidence (2); p2 Informative findings or insight into mechanism (results reveal something non-obvious about the policy or the evaluation) (2); p5 Thorough ablations or design studies of the key choices (1); p11 Downstream usefulness demonstrated (the method or measurement is shown to help an actual use, such as failure detection, data selection or control) (1); p9 Low cost or simple deployment of the method (lightweight, no retraining of the policy) (1); p10 Well-motivated method component that solves a concrete technical difficulty (design addresses a real failure of prior pipelines) (1)
+Praise: p3 Broad or consistent empirical evidence (many models, tasks or settings with the same trend) (4); p1 Careful measurement or evaluation design (well-chosen controls, accounting or protocol that isolates the effect) (3); p4 Real-robot evidence (3); p5 Thorough ablations or design studies of the key choices (3); p2 Informative findings or insight into mechanism (results reveal something non-obvious about the policy or the evaluation) (2); p9 Low cost or simple deployment of the method (lightweight, no retraining of the policy) (2); p10 Well-motivated method component that solves a concrete technical difficulty (design addresses a real failure of prior pipelines) (2); p11 Downstream usefulness demonstrated (the method or measurement is shown to help an actual use, such as failure detection, data selection or control) (1); p12 Clear conceptual framing that organizes the design space (a formulation or decomposition of the problem that clarifies what is being tested and motivates the experiments) (1)
 
-### NeurIPS 2025 (1 papers): 2 complaint rows, reject reason 50%, rebuttal resolved 0%
+### NeurIPS 2024 (2 papers): 7 complaint rows, reject reason 57%, rebuttal resolved 43%
 
-Most frequent complaint kinds: d1 one model, benchmark, simulator or few tasks generalized (1); a2 so what: does not change a decision or beat current practice (1)
+Most frequent complaint kinds: o3 missing parameters, protocols, code, checkpoints (2); o5 unfinished paper: empty cells, deferred experiments (1); c1 single run, no seeds, no intervals, too few trials (1); b2 closest current method or benchmark missing (1); e1 effect already known or expected (1); f2 venue-required section (for example the limitations section) missing or inadequate (1)
 
-Praise: p3 Broad or consistent empirical evidence (many models, tasks or settings with the same trend) (1); p8 Careful statistics or formal guarantees (seeds, intervals, calibrated or conformal bounds) (1); p9 Low cost or simple deployment of the method (lightweight, no retraining of the policy) (1)
+Praise: p3 Broad or consistent empirical evidence (many models, tasks or settings with the same trend) (2); p6 Useful released assets or infrastructure (data, code, pipeline, benchmark) (1); p2 Informative findings or insight into mechanism (results reveal something non-obvious about the policy or the evaluation) (1)
 
-### NeurIPS 2026 (2 papers): 4 complaint rows, reject reason 100%, rebuttal resolved 75%
+### NeurIPS 2025 (4 papers): 10 complaint rows, reject reason 50%, rebuttal resolved 70%
+
+Most frequent complaint kinds: d1 one model, benchmark, simulator or few tasks generalized (2); a3 unrealistic premise or framing that does not match the content (2); a2 so what: does not change a decision or beat current practice (1); o3 missing parameters, protocols, code, checkpoints (1); b1 simplest baseline or control missing (1); o1 hard to follow, undefined terms, disconnected experiments (1)
+
+Praise: p3 Broad or consistent empirical evidence (many models, tasks or settings with the same trend) (3); p8 Careful statistics or formal guarantees (seeds, intervals, calibrated or conformal bounds) (3); p9 Low cost or simple deployment of the method (lightweight, no retraining of the policy) (1); p2 Informative findings or insight into mechanism (results reveal something non-obvious about the policy or the evaluation) (1); p1 Careful measurement or evaluation design (well-chosen controls, accounting or protocol that isolates the effect) (1); p10 Well-motivated method component that solves a concrete technical difficulty (design addresses a real failure of prior pipelines) (1); p4 Real-robot evidence (1)
+
+### NeurIPS 2026 (3 papers): 4 complaint rows, reject reason 100%, rebuttal resolved 75%
 
 Most frequent complaint kinds: d1 one model, benchmark, simulator or few tasks generalized (1); g7 metric, label, probe or proxy does not measure what is claimed (1); a3 unrealistic premise or framing that does not match the content (1); d4 claimed consequence or downstream benefit asserted but never tested (1)
 
-Praise: p2 Informative findings or insight into mechanism (results reveal something non-obvious about the policy or the evaluation) (2); p3 Broad or consistent empirical evidence (many models, tasks or settings with the same trend) (1); p7 Realistic threat model or problem setting (practical relevance of the chosen setup) (1)
+Praise: p2 Informative findings or insight into mechanism (results reveal something non-obvious about the policy or the evaluation) (3); p3 Broad or consistent empirical evidence (many models, tasks or settings with the same trend) (2); p7 Realistic threat model or problem setting (practical relevance of the chosen setup) (1); p1 Careful measurement or evaluation design (well-chosen controls, accounting or protocol that isolates the effect) (1); p6 Useful released assets or infrastructure (data, code, pipeline, benchmark) (1)
 
-### TMLR (1 papers): 3 complaint rows, reject reason 33%, rebuttal resolved 0%
+### TMLR (3 papers): 17 complaint rows, reject reason 53%, rebuttal resolved 0%
 
-Most frequent complaint kinds: d4 claimed consequence or downstream benefit asserted but never tested (1); a1 effect shown without mechanism (1); o1 hard to follow, undefined terms, disconnected experiments (1)
+Most frequent complaint kinds: d4 claimed consequence or downstream benefit asserted but never tested (2); o1 hard to follow, undefined terms, disconnected experiments (2); a1 effect shown without mechanism (1); e2 incremental over named work or assembly of existing parts (1); b2 closest current method or benchmark missing (1); b1 simplest baseline or control missing (1)
 
-Praise: p6 Useful released assets or infrastructure (data, code, pipeline, benchmark) (1)
+Praise: p10 Well-motivated method component that solves a concrete technical difficulty (design addresses a real failure of prior pipelines) (2); p6 Useful released assets or infrastructure (data, code, pipeline, benchmark) (1); p9 Low cost or simple deployment of the method (lightweight, no retraining of the policy) (1); p3 Broad or consistent empirical evidence (many models, tasks or settings with the same trend) (1); p5 Thorough ablations or design studies of the key choices (1)
 
 ## Topic x venue (complaint rows: n, reject reason, rebuttal resolved)
 
-| Topic | CoRL 2023 | CoRL 2024 | ICLR 2025 | ICLR 2026 | ICLR 2027 | NeurIPS 2025 | NeurIPS 2026 | TMLR |
-|---|---|---|---|---|---|---|---|---|
-| VLA and robot-learning evaluation | 8; 50%; 25% | 1; 100%; 0% | 4; 75%; 25% | 7; 100%; 0% | 119; 94%; 0% | 2; 50%; 0% | 4; 100%; 75% |  |
-| locomotion and humanoids (partial, 2 papers) |  |  |  |  | 5; 80%; 100% |  |  | 3; 33%; 0% |
-| manipulation methods (3 papers, CoRL only) |  | 5; 60%; 0% |  |  |  |  |  |  |
+| Topic | CoRL 2023 | CoRL 2024 | ICLR 2025 | ICLR 2026 | ICLR 2027 | NeurIPS 2024 | NeurIPS 2025 | NeurIPS 2026 | TMLR |
+|---|---|---|---|---|---|---|---|---|---|
+| VLA and robot-learning evaluation | 8; 50%; 25% | 1; 100%; 0% | 4; 75%; 25% | 7; 100%; 0% | 119; 94%; 0% |  | 2; 50%; 0% | 4; 100%; 75% |  |
+| locomotion and humanoids (partial, 2 papers) |  |  |  |  | 5; 80%; 100% |  |  |  | 3; 33%; 0% |
+| manipulation methods | 7; 57%; 57% |  | 6; 67%; 17% | 8; 88%; 0% | 7; 86%; 100% | 7; 57%; 43% | 8; 50%; 88% |  | 14; 57%; 0% |
 
 ## Kinds that most often decide outcomes (reject reason share, kinds with 4+ tagged rows)
 
 | Kind | tagged rows | reject reason | rebuttal resolved |
 |---|---|---|---|
-| d1 one model, benchmark, simulator or few tasks generalized | 6 | 100% | 20% |
-| e2 incremental over named work or assembly of existing parts | 5 | 80% | 0% |
-| g7 metric, label, probe or proxy does not measure what is claimed | 5 | 80% | 40% |
-| o1 hard to follow, undefined terms, disconnected experiments | 4 | 75% | 0% |
-| b2 closest current method or benchmark missing | 4 | 75% | 50% |
+| d1 one model, benchmark, simulator or few tasks generalized | 7 | 100% | 33% |
+| e2 incremental over named work or assembly of existing parts | 8 | 88% | 0% |
+| g4 unequal budgets across conditions | 5 | 80% | 50% |
+| d4 claimed consequence or downstream benefit asserted but never tested | 5 | 80% | 50% |
+| g7 metric, label, probe or proxy does not measure what is claimed | 9 | 78% | 29% |
+| o3 missing parameters, protocols, code, checkpoints | 8 | 75% | 67% |
+| b2 closest current method or benchmark missing | 9 | 67% | 71% |
+| a3 unrealistic premise or framing that does not match the content | 5 | 60% | 25% |
+| a1 effect shown without mechanism | 5 | 60% | 20% |
 | a2 so what: does not change a decision or beat current practice | 4 | 50% | 0% |
+| o1 hard to follow, undefined terms, disconnected experiments | 8 | 38% | 60% |

@@ -4,17 +4,19 @@ What real reviewers complain about, and what they praise, in robot learning pape
 
 ## Saturation status (2026-11-20)
 
+Rule (fixed before reading reviews): a topic's complaints are saturated when the last 10 coded papers added no new complaint group and at most 2 new kinds; praise is saturated when the last 10 coded papers added no new praise group; cap 40 papers.
+
 | Topic | Complaints | Praise | Papers | Venues |
 |---|---|---|---|---|
-| Evaluation of VLA and robot-learning policies, benchmarks used for evaluation, robustness, measurement | saturated: 10-paper rule met on ICLR 2027 (30 papers) and again on 12 papers across ICLR 2025-2027, NeurIPS 2025-2026, CoRL 2023-2024 | saturated: no new praise group in 3 consecutive papers (13 papers) | 20 calibration + 30 + 13 | as listed |
-| Manipulation methods (imitation learning, diffusion policies, VLA training) | thin: 3-paper rule met after only 3 CoRL papers, nothing new; treat as unsaturated | thin: same 3 papers | 3 | CoRL 2023-2024 |
+| Evaluation of VLA and robot-learning policies, benchmarks used for evaluation, robustness, measurement | saturated (rule met on ICLR 2027 at 30 papers, and again at paper 12 across venues) | saturated at paper 20 | 20 calibration + 30 + 20 | ICLR 2025-2027, NeurIPS 2025-2026, CoRL 2023-2024 |
+| Manipulation methods (imitation learning, diffusion and flow policies, VLA training) | saturated at paper 10 | saturated at paper 13 | 13 | ICLR 2025-2027, NeurIPS 2024-2025, CoRL 2023, TMLR |
 | Locomotion, whole-body control, humanoids, RL, sim-to-real | not saturated: 2 papers coded | not saturated | 2 | ICLR 2027, TMLR |
 | World and video models for robots | not run | not run | 0 | - |
 | Datasets and benchmarks for robot learning | not run | not run | 0 | - |
 
 For unsaturated topics use the evaluation catalog as a weak prior and say so in the review header.
 
-Sources so far: ICLR 2027 reviews of 50 papers on VLA and robot-learning evaluation (20 calibration papers, 205 issues, 2026-11-17; 30 low-scored or withdrawn papers, 102 issues raised by at least two reviewers of the same paper, 2026-11-19); plus 18 papers across ICLR 2025-2027, NeurIPS 2025-2026, CoRL 2023-2024 and TMLR with severity, rebuttal and praise tags (2026-11-19 and 2026-11-20). One venue and one year: for other venues treat the shares as a weak prior.
+Sources so far: ICLR 2027 reviews of 50 papers on VLA and robot-learning evaluation (20 calibration papers, 205 issues, 2026-11-17; 30 low-scored or withdrawn papers, 102 issues raised by at least two reviewers of the same paper, 2026-11-19); plus 35 papers across ICLR 2025-2027, NeurIPS 2024-2026, CoRL 2023-2024 and TMLR with severity, rebuttal and praise tags (evaluation 20, manipulation 13, locomotion 2; 2026-11-19 and 2026-11-20). One venue and one year: for other venues treat the shares as a weak prior.
 
 Counts in brackets are the number of consensus issues (raised by 2 or more reviewers of the same paper) in the 30-paper saturation run. A kind with 0 still came up in the 20 calibration papers.
 
@@ -49,6 +51,7 @@ Counts in brackets are the number of consensus issues (raised by 2 or more revie
 
 - Shows the effect without explaining the mechanism [2].
 - "So what" [6]: the procedure is not shown to change any decision, predict real-robot outcomes or beat what practitioners already do.
+- Failure modes or operating limits not analysed (added 2026-11-20, manipulation): no breakdown of when and why the method fails.
 - Unrealistic premise or a framing that does not match the content [3]: a method that needs exact simulator state restore; risk types far from real use; a VLA framing around a domain-agnostic method.
 - Net benefit not shown [1] (new): the fix improves the targeted metric while degrading another capability.
 - Does not scale [1] (new): the pipeline depends on manual review or hand-built rules, so it is subjective and hard to apply to larger datasets.
@@ -57,6 +60,7 @@ Counts in brackets are the number of consensus issues (raised by 2 or more revie
 
 - The effect is already known or expected [4].
 - Incremental over named work, or an assembly of existing components, without a matched comparison [8].
+- Closely related prior work not cited or not positioned against (added 2026-11-20, manipulation).
 
 ## (c) Statistics - 11%
 
@@ -80,7 +84,7 @@ Counts in brackets are the number of consensus issues (raised by 2 or more revie
 
 ## Praise catalog
 
-Only specific praise raised by 2 or more reviewers of the same paper. Counts are rows in the evaluation topic (13 papers) plus manipulation (3) and locomotion (2); see catalog-views.md for the split.
+Only specific praise raised by 2 or more reviewers of the same paper. Counts per topic and venue are in catalog-views.md (evaluation 20 papers, manipulation 13, locomotion 2).
 
 - Careful measurement or evaluation design: controls, accounting or protocol that isolates the effect.
 - Informative findings or insight into mechanism: results reveal something non-obvious.
@@ -93,8 +97,9 @@ Only specific praise raised by 2 or more reviewers of the same paper. Counts are
 - Low cost or simple deployment: lightweight, no retraining of the policy.
 - A well-motivated component that solves a concrete technical difficulty of prior pipelines.
 - Downstream usefulness demonstrated: the method or measurement helps an actual use (failure detection, data selection, control).
+- Clear conceptual framing that organizes the design space and motivates the experiments (added 2026-11-20, manipulation).
 
-In the coded papers, accepted and rejected papers drew about the same number of praise rows (about 2 per paper), and no meta-review was coded as saying that a strength outweighed a serious complaint. Praise predicts the strengths section of the reviews, not the decision.
+In the coded papers, accepted and rejected papers drew about the same number of praise rows (about 2 per paper), so the amount of praise does not predict the decision. What separated them was fewer complaints treated as reasons to reject (2.4 per accepted paper against 2.8 to 3.6 for rejected or pending ones) and, in 3 accepted papers, a meta-review that named a strength as outweighing the remaining complaints: broad evidence across many models or tasks, a released real-robot dataset, downstream usefulness shown, or a simple well-motivated component. No such offset was coded for a rejected paper.
 
 ## How to use it
 
