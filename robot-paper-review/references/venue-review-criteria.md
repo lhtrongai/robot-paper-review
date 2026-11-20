@@ -12,7 +12,7 @@ Weights are inferred from the official wording only (high = named as a criterion
 
 ## 1. Sources
 
-All fetched 2026-11-20. "Official" = venue or IEEE RAS site. Pages that needed sign-in (OpenReview review forms, PaperPlaza) were not opened.
+All fetched 2026-11-20. "Official" = venue or IEEE RAS site. Pages that needed sign-in: OpenReview was read signed in for CoRL (S28, S29); PaperPlaza and IEEE review systems were not opened.
 
 | # | Venue, edition | Page | URL |
 |---|---|---|---|
@@ -43,6 +43,8 @@ All fetched 2026-11-20. "Official" = venue or IEEE RAS site. Pages that needed s
 | S25 | ICLR 2027 | Reviewer Guidelines | https://iclr.cc/Conferences/2027/ReviewerGuidelines |
 | S26 | NeurIPS 2026 | Reviewer Guidelines | https://neurips.cc/Conferences/2026/ReviewerGuidelines |
 | S27 | NeurIPS 2026 | Main Track Handbook (review form, rebuttal) | https://neurips.cc/Conferences/2026/MainTrackHandbook |
+| S28 | CoRL 2023 | Official review invitation (form fields and options), read signed in | https://api.openreview.net/invitations?id=robot-learning.org/CoRL/2023/Conference/-/Official_Review&expired=true |
+| S29 | CoRL 2024 | Public official reviews of accepted papers (field names and score values) | https://api2.openreview.net/notes?forum=<accepted paper id> |
 
 Not reachable or not opened (UNVERIFIED): RSS 2026 reviewer guidelines and review-process pages (/2026/information/reviewer-guidelines/, /2026/reviewps/, /2026/information/authorinfo/ returned errors); CoRL review form fields and full score scale (OpenReview invitation needs sign-in); ICRA/IROS criteria-rating names inside the PaperPlaza form; RA-L review form questions and the RAS review-form PDFs (fetch not permitted); the official IROS 2026 and IROS 2027 conference sites (not found by search, guessed URL not permitted); the RA-L page reachable at ieee-ras.org/publications/ra-l/ra-l-information-for-authors/ (not permitted; S19 used instead). Note: the non-www ICRA reviewer and AE URLs (ieee-ras.org/conferences-workshops/fully-sponsored/icra/information-for-reviewers and .../information-for-associate-editors) served T-RO/T-RL journal guidance on 2026-11-20; they are not used for ICRA.
 
@@ -79,7 +81,11 @@ Stages and scale (S1, S2, S3):
 ### CoRL 2026
 
 Stages and scale (S7-S11; 2025 in S12):
-- Score: "Weak accept (5) is the acceptance threshold"; full scale and form fields UNVERIFIED (OpenReview form needs sign-in). Confidence score required.
+- Score: "Weak accept (5) is the acceptance threshold"; 2025 and 2026 form fields UNVERIFIED: the review invitations are visible only to reviewers, even when signed in (checked 2026-11-20), and no 2025 or 2026 review is public yet. Confidence score required.
+- Review form of earlier editions (checked 2026-11-20, signed in to OpenReview; S28 CoRL 2023 review invitation, S29 public CoRL 2024 reviews):
+  - CoRL 2023 fields, in order: summary of paper; review (quality, clarity, originality, significance, strengths and weaknesses); questions for rebuttal (authors may submit a revised manuscript); originality (Excellent "surprising new results", Very Good "major advance", Good "some advance", Fair "incremental work, no significant advance", Poor); technical quality (Excellent to Poor; Good = "some additional experiments or analyses needed", Fair = "significant additional evidence required"); clarity of presentation (Excellent to Poor); impact (4 major impact, 3 incremental and unlikely to have much impact, 2 unsure, 1 not very relevant to the robot learning community); robotics focus (sufficient demonstration on hardware; highly relevant but no hardware experiments; relevant but unlikely to deploy to hardware soon; irrelevant to robotics); quality of the limitations section (clearly addressed; additional details required; not well addressed); recommendation (strong accept, weak accept, weak reject, strong reject); confidence (1-5); summary of recommendation.
+  - CoRL 2024 public reviews carry the same fields with numeric scores (originality, technical quality, clarity of presentation, potential impact, robotics focus, quality of the limitations section, recommendation, confidence) plus a free review title.
+  - Mapping: originality -> e1, e2 and praise p2, p10; technical quality -> g, b, c, d1, d3 and praise p1, p3, p5, p8; clarity -> o1, o2; impact and relevance -> a2, f3 and praise p11; robotics focus -> d2 and praise p4 (hardware evidence is its own scored field, so it weighs high); limitations quality -> f2, a6 and praise p14.
 - New in 2026: first-round rejection without rebuttal when no reviewer and not the AC gives weak accept or above; SACs and PCs check all candidates.
 - Rebuttal: one-page PDF on a fixed template (references included), no links, no individual replies, no paper update; "focused on addressing any factual errors" (S9) and on clarifications "specifically requested by the reviewers" (S10). New experiments: CoRL 2025 said reviewers "should not request additional experimental results in rebuttal" (S12); 2026 pages do not repeat that line. Conflict: S8 still says authors "update their papers during the rebuttal period", S9 and S10 say they cannot; follow S9/S10.
 - Required post-rebuttal box (new 2026). Camera-ready gets a 9th page.
