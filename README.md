@@ -16,14 +16,16 @@ The skill is the folder `robot-paper-review/`; `dist/` holds the same folder pac
 
 - `robot-paper-review/SKILL.md`: the procedure. It holds no dated numbers, so it does not go stale when models or venues change.
 - `robot-paper-review/CALIBRATION.md`: an append-only log of how well blind reviews predicted real public reviews, with the reviewer model and date of each round, plus the latest digest of recurring complaints. The skill reads it at the start of every run and warns when the current model or the date does not match.
-- `robot-paper-review/references/complaint-catalog.md`: the catalog of what real reviewers complain about, by error group and kind of error, with counts from public reviews.
+- `robot-paper-review/references/complaint-catalog.md`: the catalog of what real reviewers complain about and what they credit, by error group and kind, with counts from public reviews and the saturation status per topic.
+- `robot-paper-review/references/catalog-views.md`: the same rows viewed by topic, by venue and by topic x venue, with how often each kind was a reject reason and how often a rebuttal resolved it. The skill reads the paper's topic x venue cell first.
+- `robot-paper-review/references/venue-review-criteria.md`: the official review forms and reviewer instructions for RSS, CoRL, ICRA, IROS and RA-L, with sources, fetch dates and the fields that could not be verified.
 
 ## Install
 
-- Claude apps: upload `dist/robot-paper-review-v1.0.0.skill` as a custom skill.
+- Claude apps: upload `dist/robot-paper-review-v1.1.0.skill` as a custom skill.
 - Claude Code: copy the folder `robot-paper-review/` to `~/.claude/skills/robot-paper-review/`.
 
-If only `SKILL.md` is installed, the skill reads `CALIBRATION.md` from this repository at run time.
+If only `SKILL.md` is installed, the skill reads `CALIBRATION.md` and the reference files from this repository at run time.
 
 ## Use
 
@@ -31,7 +33,7 @@ Ask for a blind review of a paper and name the venue, year and track, for exampl
 
 ## Limits
 
-Calibration so far covers one venue (ICLR 2027) and one topic (VLA evaluation and robustness), 20 papers. Other venue families are marked uncalibrated in the skill. Many robotics venues do not publish reviews, so those families can only be calibrated slowly, from the user's own submissions.
+Hit-rate calibration so far covers one venue (ICLR 2027) and one topic (VLA evaluation and robustness), 20 papers; other venue families are marked uncalibrated in the skill. The complaint catalog is broader: about 100 coded papers from ICLR, NeurIPS, CoRL and TMLR across evaluation, manipulation and locomotion, saturated for those three topics; world models and datasets are not covered yet. Many robotics venues do not publish reviews, so those families can only be calibrated slowly, from the user's own submissions.
 
 ## License
 

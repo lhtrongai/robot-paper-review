@@ -21,12 +21,14 @@ Why this skill exists: an uncalibrated AI reviewer catches obvious problems but 
 ## 1. Modes
 
 - Full (default for a real submission): all steps, including the trend scan.
-- Quick (while drafting): skip step 3 and say so in the output header.
+- Quick (while drafting): in step 3 run only item 0 (the catalog) and say so in the output header.
 - Mock metareview and rebuttal check: see step 11.
 
 ## 2. Venue brief and family (fetch at run time)
 
 Identify the venue, year, track and its family below. Fetch for that exact year: call for papers or author guide, reviewer guidelines, review form and score scale, AI-use policy, paper checklist, rebuttal or revision rules, and which reviews are made public. Output a short venue brief with URLs and dates.
+
+Start from references/venue-review-criteria.md: for each venue it records the official review form and reviewer instructions with their sources and fetch dates, maps them to the error groups in step 5, and lists venue-specific checks. Pages fetched now for the current year override it, and fields it marks UNVERIFIED stay unverified unless this run fetches them.
 
 Each family has a prior on what reviewers weigh most. Priors marked UNCALIBRATED come from general knowledge, not from measured reviews: say so in the output and let the fetched reviewer guidelines override them.
 
@@ -39,9 +41,10 @@ Each family has a prior on what reviewers weigh most. Priors marked UNCALIBRATED
 
 ## 3. Trend scan (run time, full mode)
 
+0. Catalog first (quick mode too). Read references/catalog-views.md in this order: the topic x venue cell for this paper, then the paper's topic view, then the venue view; then references/complaint-catalog.md for the full list of complaint kinds and the praise catalog. The counts come from public reviews of other papers and show which complaints recur, how often they were reject reasons and how often rebuttals resolved them. Use them to aim the checklist in step 5 and as evidence when ranking in step 7, without overriding the rules of step 7. A cell built on few papers, or a topic the saturation table marks as not run, is a hint only; say so in the header. Draw strengths in step 8 from the specific kinds in the praise catalog, not generic praise. If the references folder is not next to this file, fetch the same files from https://raw.githubusercontent.com/lhtrongai/robot-paper-review/main/robot-paper-review/references/ and name the source in the header.
 1. Recent public reviews: find 5 to 10 public reviews from the venue's latest edition for papers of the same contribution type and topic. If the venue publishes none, use the closest venue that does and say which. List recurring complaints and mark those raised by 2 or more reviewers of the same paper.
 2. Prior art, last 12 months: search arXiv, OpenReview and the venue proceedings for (a) work asking the same question, (b) the benchmark, protocol or method the community currently treats as standard for this topic, including ones released after the paper's related work was written, (c) issue trackers and documentation of the benchmarks and simulators the paper uses, where the effect may already be reported. List the 3 to 5 closest works with one line each on how the paper differs or fails to differ.
-3. Reachability first: OpenReview usually answers automated requests with a browser challenge (see the trend-scan notes in CALIBRATION.md). Spend one fetch on a review page before planning the scan; if it is blocked, stop retrying and fall back in this order: (a) public reviews of other papers that the user attached for this run; (b) the latest complaint digest in CALIBRATION.md. Write in the header which source was used, for example "trend scan failed (browser challenge), used digest of <date>". Do not guess complaints beyond what the source shows.
+3. Reachability first: OpenReview usually answers automated requests with a browser challenge (see the trend-scan notes in CALIBRATION.md). Spend one fetch on a review page before planning the scan; if it is blocked, stop retrying and fall back in this order: (a) public reviews of other papers that the user attached for this run; (b) the catalog views from item 0; (c) the latest complaint digest in CALIBRATION.md. Write in the header which source was used, for example "trend scan failed (browser challenge), used digest of <date>". Do not guess complaints beyond what the source shows.
 4. Record every query and URL for the audit.
 
 ## 4. Contribution type
@@ -111,7 +114,7 @@ Score with the venue's own scale as a band, not a point. In calibration the revi
 
 ## 8. Output format (in this order)
 
-0. Header: mode, blind or NOT BLIND, venue family and its calibration status, calibration date and reviewer model, warnings from step 10, trend scan status.
+0. Header: mode, blind or NOT BLIND, venue family and its calibration status, calibration date and reviewer model, warnings from step 10, trend scan status, and which catalog views were read with their date and saturation status for this topic.
 1. Summary of the paper in 5 sentences, precise enough that the authors would recognize it.
 2. Three strengths.
 3. Desk-reject checks: pass, fail or UNVERIFIED.
